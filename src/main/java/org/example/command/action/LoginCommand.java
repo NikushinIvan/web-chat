@@ -20,11 +20,14 @@ public class LoginCommand implements Command {
         // Ваша реализация выполнения входа в Чат
         String login = request.getParameter("loginInput");
         String password = request.getParameter("passwordInput");
+        HttpSession session = request.getSession();
 
         User user = DataBase.getUser(login, password);
         if (user != null) {
-            HttpSession session = request.getSession();
             session.setAttribute("user", user);
+            session.removeAttribute("errorLoginMessage");
+        } else {
+            session.setAttribute("errorLoginMessage", "Incorrect login or password");
         }
 
         return new RedirectResult(COMMAND_SHOW_CHAT_PAGE);

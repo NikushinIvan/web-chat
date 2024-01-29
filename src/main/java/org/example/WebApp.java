@@ -6,6 +6,8 @@ import org.example.command.EmptyCommand;
 import org.example.data.DataBase;
 import org.example.result.Result;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,8 +17,10 @@ import java.io.IOException;
 public class WebApp extends HttpServlet {
 
     @Override
-    public void init() {
+    public void init(ServletConfig config) {
         DataBase.init();
+        ServletContext context = config.getServletContext();
+        context.setAttribute("messages", DataBase.getMessages());
     }
 
     @Override

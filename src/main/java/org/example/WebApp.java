@@ -31,7 +31,7 @@ public class WebApp extends HttpServlet {
 
     private void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Command command = defineCommand(request);
+          Command command = defineCommand(request);
         Result result = command.execute(request, response);
 
         String resourceName = result.getResource();

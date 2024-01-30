@@ -8,19 +8,17 @@
     </head>
     <body>
         <div align="center">
-            <div style="background-color:#ABBAEA">
-                <ul>
-                    <c:forEach var="message" items="${messages}">
-                        <li><c:out value="${message}" /></li>
-                    </c:forEach>
-                </ul>
+            <div style="background-color:#ABBAEA" align="left">
+                <c:forEach var="message" items="${messages}">
+                    <option><c:out value="${message.value.sender}: ${message.value.message}" /></option>
+                </c:forEach>
             </div>
 
             <form method="POST" action="chat?command=send_message" style="background-color:#49438F">
-                <table>
+                <table style="width: 80%">
                     <tr>
-                        <td><input id="message" type="text" name="message" value="${message}"/></td>
-                        <td><button type="submit">Отправить</button></td>
+                        <td><input id="message" type="text" name="message" value="${message}" style="width: 100%"/></td>
+                        <td align="right"><button type="submit">Отправить</button></td>
                     </tr>
                 </table>
             </form>

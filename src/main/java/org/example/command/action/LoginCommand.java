@@ -17,13 +17,13 @@ public class LoginCommand implements Command {
     @Override
     public Result execute(HttpServletRequest request, HttpServletResponse response) {
 
-        // Ваша реализация выполнения входа в Чат
         String login = request.getParameter("loginInput");
         String password = request.getParameter("passwordInput");
         HttpSession session = request.getSession();
 
         User user = DataBase.getUser(login, password);
         if (user != null) {
+            user.setOnline(true);
             session.setAttribute("user", user);
             session.removeAttribute("errorLoginMessage");
         } else {

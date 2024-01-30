@@ -1,6 +1,5 @@
 package org.example.data;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,7 +16,7 @@ public final class DataBase {
             new User("user3", "pass3", "Denis", CLIENT)
     );
 
-    private static Map<Long, Message> messages = new ConcurrentHashMap<>();
+    private static final Map<Long, Message> messages = new ConcurrentHashMap<>();
 
     private DataBase() {
     }

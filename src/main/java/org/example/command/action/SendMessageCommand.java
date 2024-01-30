@@ -4,14 +4,14 @@ import org.example.command.Command;
 import org.example.data.DataBase;
 import org.example.data.Message;
 import org.example.data.User;
-import org.example.result.ForwardResult;
+import org.example.result.RedirectResult;
 import org.example.result.Result;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import static org.example.Resources.PAGE_CHAT;
+import static org.example.Resources.COMMAND_SHOW_CHAT_PAGE;
 
 public class SendMessageCommand implements Command {
     @Override
@@ -23,8 +23,6 @@ public class SendMessageCommand implements Command {
 
         DataBase.addMessage(message);
 
-        System.out.println(DataBase.getMessages());
-
-        return new  ForwardResult(PAGE_CHAT);
+        return new RedirectResult(COMMAND_SHOW_CHAT_PAGE);
     }
 }

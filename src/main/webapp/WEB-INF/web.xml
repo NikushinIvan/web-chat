@@ -39,4 +39,7 @@
         <filter-name>managementFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <listener>
+        <listener-class>org.example.listener.SessionListener</listener-class>
+    </listener>
 </web-app>

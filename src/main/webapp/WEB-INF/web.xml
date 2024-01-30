@@ -16,6 +16,14 @@
 
     <!-- Необходимо подключить LoginFilter и SessionListener -->
     <filter>
+        <filter-name>managementFilter</filter-name>
+        <filter-class>org.example.filter.ManagementFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter>
         <filter-name>authorizationFilter</filter-name>
         <filter-class>org.example.filter.LoginFilter</filter-class>
         <init-param>
@@ -25,6 +33,10 @@
     </filter>
     <filter-mapping>
         <filter-name>authorizationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>managementFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 </web-app>

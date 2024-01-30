@@ -14,16 +14,23 @@
                 </c:forEach>
             </div>
 
-            <form method="POST" action="chat?command=send_message" style="background-color:#49438F">
-                <table style="width: 80%">
-                    <tr>
-                        <td><input id="message" type="text" name="message" value="${message}" style="width: 100%"/></td>
-                        <td align="right"><button type="submit">Отправить</button></td>
-                    </tr>
-                </table>
-            </form>
+            <c:if test="${!user.readOnly}">
+                <form method="POST" action="chat?command=send_message" style="background-color:#49438F">
+                    <table style="width: 80%">
+                        <tr>
+                            <td><input id="message" type="text" name="message" value="${message}" style="width: 100%"/></td>
+                            <td align="right"><button type="submit">Отправить</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </c:if>
 
             <a href="chat?command=logout">Выход</a>
+
+            <c:if test="${\"ADMIN\" == user.userType}">
+                <a href="chat?command=show_page_management">Панель управления</a>
+            </c:if>
+
         </div>
     </body>
 </html>

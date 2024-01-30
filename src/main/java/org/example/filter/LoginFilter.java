@@ -24,7 +24,6 @@ public class LoginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
 
-        // Ваша релизация фильтра входа пользователя на сайт
         HttpServletRequest hsr = (HttpServletRequest) request;
         HttpSession session = hsr.getSession();
 

@@ -1,7 +1,7 @@
 package org.example.data;
 
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static org.example.data.UserType.ADMIN;
@@ -32,6 +32,10 @@ public final class DataBase {
             }
         }
         return null;
+    }
+
+    public static List<User> getUsers() {
+        return USERS;
     }
 
     public static Map<Long, Message> getMessages() {
